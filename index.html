@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aquib Azam — Data Analyst | CV & Portfolio</title>
+<meta name="description" content="Data Analyst | SQL · Python · Power BI · Tableau | NSDC & PwC Certified | MBA Agribusiness. One-page CV and portfolio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B1D26; --panel:#102A36; --panel-2:#0E2430; --line:#1D3B49;
+    --blue:#2E86AB; --gold:#F0B429; --green:#3BA57C; --mist:#9FB3BE; --paper:#E9F1F4;
+    --mono:'IBM Plex Mono',monospace; --sans:'IBM Plex Sans',sans-serif; --disp:'Space Grotesk',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--paper);font-family:var(--sans);line-height:1.65;font-size:16px}
+  a{color:inherit}
+  ::selection{background:var(--gold);color:var(--ink)}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  /* scroll reveal */
+  .rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .rv{opacity:1;transform:none;transition:none}
+    *{animation:none!important}
+  }
+
+  /* ── nav ── */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,29,38,.94);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
+  nav.scrolled{border-bottom-color:var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:var(--mono);font-size:.9rem;color:var(--gold);text-decoration:none}
+  .nav-links{display:flex;gap:26px;list-style:none}
+  .nav-links a{text-decoration:none;font-size:.85rem;color:var(--mist);transition:color .2s}
+  .nav-links a:hover{color:var(--gold)}
+  @media(max-width:640px){.nav-links{gap:16px;font-size:.8rem}}
+
+  /* ── FULLSCREEN HERO ── */
+  .hero{min-height:100svh;display:flex;align-items:center;position:relative;overflow:hidden;
+    background:
+      radial-gradient(900px 500px at 80% 15%, rgba(46,134,171,.14), transparent 60%),
+      radial-gradient(700px 420px at 15% 85%, rgba(59,165,124,.10), transparent 60%),
+      var(--ink)}
+  .hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:64px 64px;mask-image:radial-gradient(ellipse at center,black 0%,transparent 75%)}
+  .hero-in{position:relative;z-index:2;display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center;width:100%;padding-top:62px}
+  @media(max-width:820px){.hero-in{grid-template-columns:1fr;gap:34px;text-align:center;justify-items:center}}
+
+  .avatar{width:230px;height:230px;border-radius:50%;position:relative;flex-shrink:0;
+    background:linear-gradient(135deg,var(--blue),var(--green));padding:4px;
+    animation:float 6s ease-in-out infinite}
+  @keyframes float{50%{transform:translateY(-10px)}}
+  .avatar-in{width:100%;height:100%;border-radius:50%;background:var(--panel);display:flex;align-items:center;justify-content:center;
+    font-family:var(--disp);font-size:4.4rem;font-weight:700;color:var(--gold);overflow:hidden}
+  .avatar-in img{width:100%;height:100%;object-fit:cover}
+  .avatar::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:1px dashed var(--line);animation:spin 40s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  .hello{font-family:var(--mono);font-size:.85rem;color:var(--green);letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+  .hero h1{font-family:var(--disp);font-size:clamp(2.6rem,6.5vw,4.3rem);font-weight:700;line-height:1.03;letter-spacing:-.02em}
+  .typed-row{margin-top:16px;font-family:var(--mono);font-size:clamp(1rem,2.4vw,1.35rem);color:var(--gold);min-height:1.8em}
+  .typed-row .caret{display:inline-block;width:10px;height:1.1em;background:var(--gold);vertical-align:text-bottom;animation:blink 1s steps(1) infinite;margin-left:2px}
+  @keyframes blink{50%{opacity:0}}
+  .hero-sub{margin-top:18px;max-width:560px;color:var(--mist)}
+  .hero-cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+  @media(max-width:820px){.hero-cta{justify-content:center}}
+  .btn{font-family:var(--mono);font-size:.85rem;text-decoration:none;padding:13px 24px;border-radius:4px;transition:transform .15s,border-color .2s;display:inline-block}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-gold{background:var(--gold);color:var(--ink);font-weight:500}
+  .btn-line{border:1px solid var(--line);color:var(--paper)}
+  .btn-line:hover{border-color:var(--gold)}
+  .scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:.7rem;color:var(--mist);letter-spacing:.15em;animation:bob 2s ease-in-out infinite}
+  @keyframes bob{50%{transform:translate(-50%,8px)}}
+
+  /* ── sections ── */
+  section{padding:90px 0}
+  .sec-label{font-family:var(--mono);font-size:.75rem;color:var(--gold);letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px;text-align:center}
+  h2{font-family:var(--disp);font-size:clamp(1.7rem,3.6vw,2.3rem);font-weight:600;margin-bottom:14px;text-align:center;letter-spacing:-.01em}
+  .sec-sub{text-align:center;color:var(--mist);max-width:640px;margin:0 auto 52px;font-size:.95rem}
+
+  /* ── about ── */
+  .about-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:48px;align-items:start}
+  @media(max-width:780px){.about-grid{grid-template-columns:1fr}}
+  .about-grid p{color:var(--mist);margin-bottom:16px}
+  .about-grid p strong{color:var(--paper)}
+  .info-card{border:1px solid var(--line);border-radius:8px;background:var(--panel);padding:26px}
+  .info-card li{list-style:none;display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:.88rem}
+  .info-card li:last-child{border-bottom:0}
+  .info-card li span:first-child{font-family:var(--mono);color:var(--mist);font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+  .info-card li span:last-child{color:var(--paper);text-align:right}
+
+  /* ── skills: animated bars ── */
+  #skills{background:var(--panel-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .bars{display:grid;grid-template-columns:1fr 1fr;gap:26px 56px;max-width:900px;margin:0 auto}
+  @media(max-width:700px){.bars{grid-template-columns:1fr}}
+  .bar-row .bar-head{display:flex;justify-content:space-between;font-size:.88rem;margin-bottom:8px}
+  .bar-row .bar-head b{font-weight:600}
+  .bar-row .bar-head span{font-family:var(--mono);font-size:.72rem;color:var(--gold)}
+  .track{height:8px;border-radius:99px;background:var(--ink);border:1px solid var(--line);overflow:hidden}
+  .fill{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--blue),var(--green));transition:width 1.3s cubic-bezier(.22,.9,.36,1)}
+  .in .fill{width:var(--w)}
+  .chip-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:44px}
+  .chip{font-family:var(--mono);font-size:.75rem;color:var(--paper);border:1px solid var(--line);border-radius:99px;padding:7px 16px;background:var(--ink)}
+
+  /* ── timeline ── */
+  .timeline{position:relative;max-width:820px;margin:0 auto}
+  .timeline::before{content:"";position:absolute;left:19px;top:0;bottom:0;width:2px;background:var(--line)}
+  .t-item{position:relative;padding:0 0 42px 62px}
+  .t-item:last-child{padding-bottom:0}
+  .t-dot{position:absolute;left:8px;top:4px;width:24px;height:24px;border-radius:50%;background:var(--ink);border:2px solid var(--blue);display:flex;align-items:center;justify-content:center}
+  .t-dot::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold)}
+  .t-date{font-family:var(--mono);font-size:.72rem;color:var(--gold);letter-spacing:.06em}
+  .t-item h3{font-family:var(--disp);font-size:1.1rem;font-weight:600;margin:6px 0 2px}
+  .t-org{font-size:.85rem;color:var(--blue);margin-bottom:8px}
+  .t-item p{color:var(--mist);font-size:.92rem;max-width:640px}
+
+  /* ── portfolio grid ── */
+  #portfolio{background:var(--panel-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .port-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:22px}
+  .card{border:1px solid var(--line);border-radius:8px;background:var(--panel);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,border-color .25s}
+  .card:hover{transform:translateY(-6px);border-color:var(--blue)}
+  .card-top{height:9px;background:linear-gradient(90deg,var(--blue),var(--green))}
+  .card-body{padding:24px;display:flex;flex-direction:column;flex:1}
+  .card h3{font-family:var(--disp);font-size:1.08rem;font-weight:600;margin-bottom:4px}
+  .card .stack{font-family:var(--mono);font-size:.68rem;color:var(--blue);margin-bottom:12px}
+  .card p{color:var(--mist);font-size:.88rem;flex:1}
+  .card .nums{margin:14px 0;display:flex;flex-wrap:wrap;gap:8px}
+  .card .nums span{font-family:var(--mono);font-size:.7rem;color:var(--paper);background:var(--ink);border:1px solid var(--line);border-radius:4px;padding:4px 9px}
+  .card .nums em{font-style:normal;color:var(--gold);font-weight:500}
+  .card a.repo{font-family:var(--mono);font-size:.75rem;color:var(--green);text-decoration:none}
+  .card a.repo:hover{text-decoration:underline}
+
+  /* ── contact ── */
+  footer{padding:90px 0 54px;text-align:center}
+  footer p{color:var(--mist);max-width:520px;margin:0 auto 32px}
+  .foot-links{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+  .tiny{margin-top:52px;font-family:var(--mono);font-size:.7rem;color:#4E6673}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#home">AQUIB.AZAM</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ════ FULLSCREEN HERO ════ -->
+<header class="hero" id="home">
+  <div class="wrap hero-in">
+    <div class="avatar">
+      <div class="avatar-in">
+        <img src="photo.jpg" alt="Aquib Azam">
+      </div>
+    </div>
+    <div>
+      <div class="hello">Hello, I am</div>
+      <h1>Aquib Azam</h1>
+      <div class="typed-row"><span id="typed"></span><span class="caret"></span></div>
+      <p class="hero-sub">I turn raw, messy data into decisions businesses can act on. NSDC &amp; PwC certified — with an MBA in Agribusiness, I understand the business question behind the data, not just the query.</p>
+      <div class="hero-cta">
+        <a class="btn btn-gold" href="#portfolio">View my work</a>
+        <a class="btn btn-line" href="#contact">Hire me</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL ▾</div>
+</header>
+
+<!-- ════ ABOUT ════ -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-label rv">// who I am</div>
+    <h2 class="rv">About Me</h2>
+    <p class="sec-sub rv">A data analyst with real domain roots — from hospital records to my own farmland.</p>
+    <div class="about-grid">
+      <div class="rv">
+        <p>My path into data is a little different — and that's my edge. I hold an <strong>MBA in Agribusiness Management</strong> and managed real operational data, from hospital diagnostic records to a hydroponic farm project, before formally training as an analyst through the <strong>PwC-designed, NSDC-certified Data Analytics with AI program</strong>.</p>
+        <p>Long-term, I'm working toward a <strong>2-acre model farm project in Itki, Jharkhand</strong> — combining hands-on agriculture with the data tools I'm building now. That's why my flagship personal project is a farmer advisory app: I build for problems I've seen firsthand.</p>
+        <p>Beyond the core analytics stack, I build with AI — including <strong>Jarvis</strong>, a multi-agent system on Claude Code — to automate the repetitive parts of analysis and focus on the insight that matters.</p>
+      </div>
+      <ul class="info-card rv">
+        <li><span>Name</span><span>Aquib Azam</span></li>
+        <li><span>Role</span><span>Data Analyst</span></li>
+        <li><span>Location</span><span>Ranchi, Jharkhand, India</span></li>
+        <li><span>Email</span><span>aquib.azam8@gmail.com</span></li>
+        <li><span>Certified</span><span>NSDC &amp; PwC — Data Analytics with AI</span></li>
+        <li><span>Education</span><span>MBA Agribusiness · B.Sc. Biotech</span></li>
+        <li><span>Open to</span><span>On-site · Hybrid · Remote</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ════ SKILLS ════ -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-label rv">// toolkit</div>
+    <h2 class="rv">Skills</h2>
+    <p class="sec-sub rv">Proficiency built through a 7-month certified program and six end-to-end projects.</p>
+    <div class="bars">
+      <div class="bar-row rv" style="--w:90%"><div class="bar-head"><b>SQL</b><span>joins · window fns · CTEs</span></div><div class="track"><div class="fill"></div></div></div>
+      <div class="bar-row rv" style="--w:85%"><div class="bar-head"><b>Power BI</b><span>DAX · data modeling</span></div><div class="track"><div class="fill"></div></div></div>
+      <div class="bar-row rv" style="--w:82%"><div class="bar-head"><b>Python</b><span>Pandas · NumPy</span></div><div class="track"><div class="fill"></div></div></div>
+      <div class="bar-row rv" style="--w:80%"><div class="bar-head"><b>Tableau</b><span>LOD · calculated fields</span></div><div class="track"><div class="fill"></div></div></div>
+      <div class="bar-row rv" style="--w:85%"><div class="bar-head"><b>Excel</b><span>advanced</span></div><div class="track"><div class="fill"></div></div></div>
+      <div class="bar-row rv" style="--w:78%"><div class="bar-head"><b>ETL &amp; Data Cleaning</b><span>pipelines · profiling</span></div><div class="track"><div class="fill"></div></div></div>
+      <div class="bar-row rv" style="--w:75%"><div class="bar-head"><b>Statistics &amp; EDA</b><span>distributions · testing</span></div><div class="track"><div class="fill"></div></div></div>
+      <div class="bar-row rv" style="--w:72%"><div class="bar-head"><b>AI Tools &amp; Agents</b><span>Claude Code · prompting</span></div><div class="track"><div class="fill"></div></div></div>
+    </div>
+    <div class="chip-row rv">
+      <span class="chip">Star-Schema Modeling</span><span class="chip">RFM Segmentation</span><span class="chip">K-Means</span>
+      <span class="chip">FastAPI</span><span class="chip">React</span><span class="chip">Git &amp; GitHub</span><span class="chip">Jupyter</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════ RESUME ════ -->
+<section id="resume">
+  <div class="wrap">
+    <div class="sec-label rv">// journey</div>
+    <h2 class="rv">Experience &amp; Education</h2>
+    <p class="sec-sub rv">From biotech labs and farm fields to certified data analytics.</p>
+    <div class="timeline">
+      <div class="t-item rv">
+        <div class="t-dot"></div>
+        <div class="t-date">OCT 2025 — MAY 2026</div>
+        <h3>Data Analytics Trainee</h3>
+        <div class="t-org">PhysicsWallah Skills — NSDC &amp; PwC Certified Program</div>
+        <p>Intensive 7-month program across the full analytics stack: SQL, Python, Power BI, Tableau, Excel, ETL, statistics and EDA — with PwC-aligned case studies and a Tableau capstone. Built 6 portfolio projects.</p>
+      </div>
+      <div class="t-item rv">
+        <div class="t-dot"></div>
+        <div class="t-date">2023 — 2025</div>
+        <h3>MBA, Agribusiness Management</h3>
+        <div class="t-org">Birsa Agricultural University, Ranchi</div>
+        <p>Agricultural economics, business analytics, project management and rural enterprise — business strategy meets data-driven decision-making.</p>
+      </div>
+      <div class="t-item rv">
+        <div class="t-dot"></div>
+        <div class="t-date">OCT — DEC 2023</div>
+        <h3>Intern — Hydroponic Farm Project</h3>
+        <div class="t-org">Ind Hydro by Agri Joy · Dehradun</div>
+        <p>Set up a 1,000 sq.m. hydroponic capsicum farm on time and on budget — planning the timeline, procuring resources, and coordinating a 5-member team with Asana-based reviews.</p>
+      </div>
+      <div class="t-item rv">
+        <div class="t-dot"></div>
+        <div class="t-date">MAY — JUL 2019</div>
+        <h3>Hospital Data Management Trainee</h3>
+        <div class="t-org">Superspeciality Hospital Janakpuri, Govt. of Delhi</div>
+        <p>Maintained accurate records for 40–50 diagnostic samples per day in structured Excel sheets; coordinated a 3-intern team across microbiology, biochemistry and pathology.</p>
+      </div>
+      <div class="t-item rv">
+        <div class="t-dot"></div>
+        <div class="t-date">2017 — 2020</div>
+        <h3>B.Sc. (Hons.) Biotechnology</h3>
+        <div class="t-org">Amity University</div>
+        <p>Scientific foundation in research methods and lab data handling.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ PORTFOLIO ════ -->
+<section id="portfolio">
+  <div class="wrap">
+    <div class="sec-label rv">// selected work</div>
+    <h2 class="rv">Portfolio</h2>
+    <p class="sec-sub rv">Six end-to-end projects with real numbers — every one on GitHub.</p>
+    <div class="port-grid">
+
+      <article class="card rv">
+        <div class="card-top"></div>
+        <div class="card-body">
+          <h3>Smart City Performance Analytics</h3>
+          <div class="stack">Python · Pandas · scikit-learn · Tableau</div>
+          <p>4-scenario capstone on 5,000 cities × 15 metrics — a mayor's benchmark report, a UNEP Green Index, a PE screening tool, and a livability dashboard.</p>
+          <div class="nums"><span><em>2,951</em> peers benchmarked</span><span><em>825</em> targets found</span><span><em>901</em> cities flagged</span></div>
+          <a class="repo" href="https://github.com/aquibazam8-afk/smart-city-performance-analytics" target="_blank" rel="noopener">View on GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="card rv">
+        <div class="card-top"></div>
+        <div class="card-body">
+          <h3>PwC Power BI — Retail CXO Dashboards</h3>
+          <div class="stack">Power BI · DAX · Power Query · Excel</div>
+          <p>Executive Sales &amp; Finance dashboards from a 14-table star-schema warehouse — YTD, Achievement %, Gross Profit and EBITDA in DAX.</p>
+          <div class="nums"><span><em>80%</em> brand risk flagged</span><span><em>14</em> tables joined</span><span><em>10</em> showrooms</span></div>
+          <a class="repo" href="https://github.com/aquibazam8-afk/pwc-powerbi-retail-analytics" target="_blank" rel="noopener">View on GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="card rv">
+        <div class="card-top"></div>
+        <div class="card-body">
+          <h3>Kisan Dashboard — Farmer Web App</h3>
+          <div class="stack">FastAPI · React · CNN · Live Mandi API</div>
+          <p>Bilingual (Hindi/English) advisory app for smallholder farmers: live mandi prices with fallback architecture, weather, and CNN-based disease detection.</p>
+          <div class="nums"><span><em>2</em> languages</span><span><em>Live</em> price API</span><span><em>38</em> disease classes</span></div>
+          <a class="repo" href="https://github.com/aquibazam8-afk/kisan-dashboard" target="_blank" rel="noopener">View on GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="card rv">
+        <div class="card-top"></div>
+        <div class="card-body">
+          <h3>Hospital SQL Healthcare Analytics</h3>
+          <div class="stack">SQL · MySQL · Window Functions · CTEs</div>
+          <p>Full patient-journey analysis across 5 tables — RANK/NTILE, CTE-driven RFM segmentation, and 2-sigma outlier detection on treatment costs.</p>
+          <div class="nums"><span><em>₹37L</em> revenue surfaced</span><span><em>22%</em> no-show rate</span><span><em>RFM</em> model</span></div>
+          <a class="repo" href="https://github.com/aquibazam8-afk/hospital-sql-healthcare-analytics" target="_blank" rel="noopener">View on GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="card rv">
+        <div class="card-top"></div>
+        <div class="card-body">
+          <h3>Retail ETL Pipeline</h3>
+          <div class="stack">Python · Pandas · NumPy</div>
+          <p>End-to-end Extract → Transform → Load pipeline cleaning 1,000 messy transactions — profiling, type coercion, standardization, recomputed metrics.</p>
+          <div class="nums"><span><em>486</em> prices fixed</span><span><em>193</em> qty errors corrected</span><span><em>₹2.21 Cr</em> clean revenue</span></div>
+          <a class="repo" href="https://github.com/aquibazam8-afk/retail-etl-pipeline" target="_blank" rel="noopener">View on GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="card rv">
+        <div class="card-top"></div>
+        <div class="card-body">
+          <h3>Jarvis — Multi-Agent AI System</h3>
+          <div class="stack">Claude Code · Orchestration · Prompt Design</div>
+          <p>Coordinator + sub-agent architecture: 5 role-specialized agents with scoped tool permissions, persistent memory, and slash-command workflows.</p>
+          <div class="nums"><span><em>5</em> sub-agents</span><span><em>Scoped</em> permissions</span><span><em>Persistent</em> memory</span></div>
+          <a class="repo" href="https://github.com/aquibazam8-afk/jarvis" target="_blank" rel="noopener">View on GitHub ↗</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ CONTACT ════ -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="sec-label rv">// get in touch</div>
+    <h2 class="rv">Let's talk data</h2>
+    <p class="rv">If you're hiring — or just want to talk about how data drives decisions — my inbox is open.</p>
+    <div class="foot-links rv">
+      <a class="btn btn-gold" href="mailto:aquib.azam8@gmail.com">aquib.azam8@gmail.com</a>
+      <a class="btn btn-line" href="https://www.linkedin.com/in/aquib-azam-analyst/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn btn-line" href="https://github.com/aquibazam8-afk" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+    <div class="tiny">© 2026 Aquib Azam · Ranchi, Jharkhand</div>
+  </div>
+</footer>
+
+<script>
+  // typed roles
+  const roles = ["Data Analyst","BI & Reporting Analyst","SQL · Python · Power BI · Tableau","Agri-Tech Data Analyst"];
+  const el = document.getElementById('typed');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) { el.textContent = roles[0]; }
+  else {
+    let r=0,c=0,del=false;
+    (function tick(){
+      const word = roles[r];
+      el.textContent = word.slice(0,c);
+      if(!del && c<word.length){c++;setTimeout(tick,70);}
+      else if(!del){del=true;setTimeout(tick,1600);}
+      else if(c>0){c--;setTimeout(tick,38);}
+      else{del=false;r=(r+1)%roles.length;setTimeout(tick,350);}
+    })();
+  }
+
+  // scroll reveal
+  const io = new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.15});
+  document.querySelectorAll('.rv').forEach(x=>io.observe(x));
+
+  // nav border on scroll
+  const nav = document.getElementById('nav');
+  addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+</script>
+
+</body>
+</html>
